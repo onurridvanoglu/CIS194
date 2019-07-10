@@ -23,3 +23,7 @@ insertMsg _ tree = tree
 
 build :: [LogMessage] -> MessageTree
 build = foldr insertMsg Leaf
+
+inOrder :: MessageTree -> [LogMessage]
+inOrder Leaf = []
+inOrder (Node l x r) = inOrder l ++ [x] ++ inOrder r
